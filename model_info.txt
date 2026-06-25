@@ -1,0 +1,17 @@
+Female = 0 male = 1
+yes = 1 No = 0
+southwest = 3
+southeast = 2
+northwest = 1
+northeast = 0
+
+{
+    "data":{
+        "age":19,
+        "sex":0,
+        "bmi":27,
+        "children":0,
+        "smoker":1,
+        "region":3
+    }
+}
