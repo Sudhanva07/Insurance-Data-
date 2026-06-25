@@ -26,5 +26,15 @@ def predict_api():
     print(np.exp(output[0]))
     return jsonify(np.exp(output[0]))
 
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data=[float(x) for x in request.form.values()]
+    polynomial_converter = PolynomialFeatures(degree=4, include_bias = False)
+    final_input = polynomial_converter.fit_transform(np.array(data).reshape(1, -1))
+    print(final_input)
+    output = np.exp(model.predict(final_input)[0])
+    return render_template("index.html", prediction_text="The insurance charges are {}".format(output))
+
 if __name__ == "__main__":
     app.run(debug=True)    
